@@ -2,10 +2,15 @@
 <html>
 <head>
 <script>
-function computerPlay(){
-  
- return Rock || Paper || Scissors;
-
+function computerPlay () {
+  const number = genNumber()
+  if (number === 1) {
+    return 'Rock'
+  } else if (number === 2) {
+    return 'Paper'
+  } else {
+    return 'Scissors'
+  }
 }
 function playRound(playerSelection, computerSelection){
    return "You lose! Paper beats Rock!";
