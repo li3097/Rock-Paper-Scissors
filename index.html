@@ -2,35 +2,62 @@
 <html>
 <head>
 <script>
-const number = genNumber(1, 2, 3)
-function computerPlay () {
-  
+
+let computerCount = 0; playerCount = 0;
+function computerPlay(){
+  const number = genNumber()
   if (number === 1) {
-    return 'Rock'
+    return 'Rock';
   } else if (number === 2) {
-    return 'Paper'
+    return 'Paper';
   } else {
-    return 'Scissors'
+    return 'Scissors';
   }
 }
-function playRound(playerSelection, computerSelection){
-   
 
-const playerSelection = 'rock';
-const computerSelection = computerPlay(genNumber);
-console.log(playRound(playerSelection, computerSelection));
-return "You lose! Paper beats Rock!";
+function genNumber(){
+  return Math.floor(Math.random() * 3) +1;
+}
+function playRound(){
+
+playerSelection = prompt("Which one do you choose?");
+computerSelection = computerPlay();
+
+ if (playerSelection == "Rock") {
+    if (computerSelection == "Scissors") {
+      playerCount++
+      console.log('Player Wins')
+    } else if (computerSelection == "Paper") {
+      computerCount++
+      console.log("Computer Wins")
+    }
+} else if (playerSelection == "Paper") {
+    if (computerSelection == "Rock") {
+      playerCount++
+      console.log('Player Wins')
+    } else if (computerSelection == "Scissors") {
+      computerCount++
+      console.log("Computer Wins")
+    }
+  } else if (playerSelection == "Scissors") {
+    if (computerSelection == "Paper") {
+      playerCount++
+      console.log('Player Wins')
+    } else if (computerSelection == "Rock") {
+      computerCount++
+      console.log("Computer Wins")
+    }
+}
+
 }
 function game(){
-     function playRound(playerSelection, computerSelection){
-
-const playerSelection = 'scissors';
-const computerSelection = computerPlay(genNumber);
-console.log(playRound(playerSelection, computerSelection));
-return "You lose! Scissors beats Paper!";
-
-window.prompt("What one do you choose?");
-   let answer = " ";
+   let count = 0;
+  //playerCount = 0;
+  // computerCount = 0;
+   
+   while (playerCount < 5 && computerCount < 5){
+     playRound();
+   
    }
 }
 </script>
