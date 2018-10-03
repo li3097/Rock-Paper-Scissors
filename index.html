@@ -7,7 +7,7 @@ let count;
 let computerCount;
 let playerCount;
 function computerPlay(){
-  const number = genNumber()
+  const number = genNumber();
   if (number === 1) {
     return 'Rock';
   } else if (number === 2) {
@@ -15,65 +15,77 @@ function computerPlay(){
   } else {
     return 'Scissors';
   }
-}
+}//end computerPlay function
 
 function genNumber(){
-  return Math.floor(Math.random() * 3) +1;
-}
+  return Math.floor(Math.random() * 3);
+}//end genNumber function
+
+function playerSelection(){
+  playerSelection = playerSelection.toLowerCase();
+  if( playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+   return playerSelection; 
+ } else {
+   console.log('Error!');
+ }//end else
+
+}//end function playerSelection
+
 function playRound(){
 
 playerSelection = prompt("Which one do you choose?");
 computerSelection = computerPlay();
 
- if (playerSelection == "Rock") {
-    if (computerSelection == "Scissors") {
-      playerCount++;
-      console.log('Player Wins');
-    } else if (computerSelection == "Paper") {
-      computerCount++;
-      console.log("Computer Wins");
-    } else if (computerSelection == "Rock"){
-      console.log("It is a tie");
-    }
-} else if (playerSelection == "Paper") {
-    if (computerSelection == "Rock") {
-      playerCount++;
-      console.log('Player Wins');
-    } else if (computerSelection == "Scissors") {
-      computerCount++;
-      console.log("Computer Wins");
-    } else if (computerSelection == "Paper"){
-      console.log("It is a tie");
-    }
-  } else if (playerSelection == "Scissors") {
-    if (computerSelection == "Paper") {
-      playerCount++;
-      console.log('Player Wins');
-    } else if (computerSelection == "Rock") {
-      computerCount++;
-      console.log("Computer Wins");
-    } else if (computerSelection == "Scissors"){
-      console.log("It is a tie");
-    }
+if(playerSelection === computerSelection){
+  return "The game was a tie";
 }
 
-}
-//function game(){
+ if (playerSelection === "Paper") {
+    if (computerSelection === "Scissors" || computerSelection === "Rock") {
+      computerCount++;
+      return "Computer Wins";
+    } else {
+      playerCount++;
+      return "You won.";
+    } //end else
+    }//end if playerSelection Paper
+ if (playerSelection === "Scissors") {
+    if (computerSelection === "Rock" || computerSelection === "Paper"){ 
+      computerCount++;
+      return "Computer Wins";
+    } else{
+      playerCount++;
+      return "You won";
+    } //end else
+ }//end if playerSelection Scissors  
+
+ if (playerSelection === "Rock") {
+    if (computerSelection === "Paper" || computerSelection === "Scissors"){
+      playerCount++;
+      return 'Player Wins';
+    }else {
+      computerCount++;
+      return "Computer Wins";
+    }//end else
+ }//end if playerSelection Rock  
+}//end playRound()
+
+function game(){
   //count = 0;
   //playerCount = 0;
   //computerCount = 0;
    
-   //while (playerCount < 5 && computerCount < 5){
-    // playRound();
-   
-  // if (computerCount == 5){
-    // console.log('Computer wins the game!');
-    // } else {
-     //  console.log('Player wins the game')
-    // }
+   if (playerCount < 5 && computerCount < 5){
+     playRound();
+   }
+   else if (computerCount == 5){
+     console.log('Computer wins the game!');
+   } else {
+    console.log('Player wins the game')
+     }//end else
   // }
-//}
-//game();
+}// game()
+game();
 </script>
 </head>
 <body></body>
