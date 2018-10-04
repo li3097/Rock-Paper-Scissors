@@ -44,13 +44,13 @@ if(playerSelection === computerSelection){
     if (computerSelection === "Scissors" || computerSelection === "Rock") {
       computerCount++;
       return "Computer Wins";
-    } else {
-      playerCount++;
-      return "You won.";
-    } //end else
+    } //else {
+      //playerCount++;
+     // return "You won.";
+    //} //end else
     }//end if playerSelection Paper
  if (playerSelection === "Scissors") {
-    if (computerSelection === "Rock" || computerSelection === "Paper"){ 
+    if (computerSelection === "Rock"){ 
       computerCount++;
       return "Computer Wins";
     } else{
@@ -63,10 +63,10 @@ if(playerSelection === computerSelection){
     if (computerSelection === "Paper" || computerSelection === "Scissors"){
       playerCount++;
       return 'Player Wins';
-    }else {
-      computerCount++;
-      return "Computer Wins";
-    }//end else
+    }//else {
+      //computerCount++;
+      //return "Computer Wins";
+    //}//end else
  }//end if playerSelection Rock  
 }//end playRound()
 
